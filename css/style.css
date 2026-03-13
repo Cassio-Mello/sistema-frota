@@ -1,0 +1,116 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #f1f5f9;
+}
+
+header {
+
+    background: #0f172a;
+    color: white;
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+button {
+
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+
+}
+
+.dashboard {
+
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+
+}
+
+.card {
+
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 200px;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+}
+
+.grafico {
+
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+
+}
+
+table {
+
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+
+}
+
+th,
+td {
+
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+
+}
+
+.modal {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+.modal-box {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 300px;
+
+}
+
+input {
+
+    padding: 8px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 5px;
+
+}
