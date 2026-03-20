@@ -83,6 +83,26 @@ const createTables = () => {
     )
   `);
 
+  // Trip segments table (etapas do frete)
+  db.run(`
+    CREATE TABLE IF NOT EXISTS trip_segments (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      trip_id INTEGER NOT NULL,
+      origin TEXT NOT NULL,
+      destination TEXT NOT NULL,
+      date_start DATE NOT NULL,
+      freight_value REAL NOT NULL,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (trip_id) REFERENCES trips (id) ON DELETE CASCADE
+    )
+  `, (err) => {
+    if (err) {
+      console.error('Error creating trip_segments table:', err);
+    } else {
+      console.log('✅ Trip segments table created');
+    }
+  });
+
   // Subscription plans table
   db.run(`
     CREATE TABLE IF NOT EXISTS subscription_plans (
@@ -248,6 +268,26 @@ const initDatabase = () => {
           return;
         }
         console.log('✅ Other expenses table created');
+      });
+
+      db.run(`
+        CREATE TABLE IF NOT EXISTS trip_segments (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          trip_id INTEGER NOT NULL,
+          origin TEXT NOT NULL,
+          destination TEXT NOT NULL,
+          date_start DATE NOT NULL,
+          freight_value REAL NOT NULL,
+          created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+          FOREIGN KEY (trip_id) REFERENCES trips (id) ON DELETE CASCADE
+        )
+      `, (err) => {
+        if (err) {
+          console.error('Error creating trip_segments table:', err);
+          reject(err);
+          return;
+        }
+        console.log('✅ Trip segments table created');
       });
 
       db.run(`
